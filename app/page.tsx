@@ -59,8 +59,8 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* CTA Button - CORREGIDO */}
-            <Link href="/login" className="access-workspace-nav">
+            {/* CTA Button */}
+            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
           </div>
@@ -77,7 +77,7 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            <Link href="/login" className="access-workspace-cta">
+            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
             <Link href="/solutions" className="explore-solutions-btn">
@@ -208,7 +208,7 @@ export default function HomePage() {
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          <Link href="/login" className="access-workspace-cta">
+          <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
             Access Workspace
           </Link>
         </div>
@@ -372,60 +372,15 @@ export default function HomePage() {
           user-select: none;
         }
 
-        /* BOTÓN ACCESS WORKSPACE - ESTANDARIZADO */
-        .access-workspace-nav {
-          background: linear-gradient(135deg, #495057, #6c757d);
-          color: white;
-          border: none;
-          padding: 0.75rem 1.5rem;
-          border-radius: 12px;
-          font-size: 0.95rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-decoration: none;
-          display: inline-block;
-          box-shadow: 0 2px 8px rgba(73, 80, 87, 0.2);
-        }
-
-        .access-workspace-nav:hover {
-          background: linear-gradient(135deg, #3d4349, #5a6268);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.3);
-          color: white;
-        }
-
-        .access-workspace-cta {
-          background: linear-gradient(135deg, #495057, #6c757d);
-          color: white;
-          border: none;
-          padding: 1.2rem 3rem;
-          border-radius: 20px;
-          font-size: 1.2rem;
-          font-weight: 700;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-decoration: none;
-          display: inline-block;
-          box-shadow: 0 4px 15px rgba(73, 80, 87, 0.2);
-        }
-
-        .access-workspace-cta:hover {
-          background: linear-gradient(135deg, #3d4349, #5a6268);
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
-          color: white;
-        }
-
         /* BOTÓN EXPLORE SOLUTIONS */
         .explore-solutions-btn {
           background: transparent;
           color: #495057;
           border: 2px solid #495057;
-          padding: 1.2rem 3rem;
-          border-radius: 20px;
-          font-size: 1.2rem;
-          font-weight: 700;
+          padding: 0.5rem 1.5rem;
+          border-radius: 8px;
+          font-size: 0.95rem;
+          font-weight: 600;
           cursor: pointer;
           transition: all 0.3s ease;
           text-decoration: none;
@@ -435,8 +390,8 @@ export default function HomePage() {
         .explore-solutions-btn:hover {
           background: #495057;
           color: white;
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         /* HERO SECTION */
