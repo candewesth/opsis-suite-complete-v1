@@ -310,8 +310,10 @@ export default function HomePage() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 70px;
+          height: 64px;
           width: 100%;
+          position: relative;
+          z-index: 20;
         }
 
         .logo-section {
@@ -320,6 +322,8 @@ export default function HomePage() {
           gap: 12px;
           text-decoration: none;
           transition: transform 0.2s ease;
+          position: relative;
+          z-index: 10;
         }
 
         .logo-section:hover {
@@ -329,29 +333,30 @@ export default function HomePage() {
         /* LOGO ANIMADO - EXACTO COMO ESTABLECIDO */
         .nav-logo-container {
           position: relative;
-          width: 54px;
-          height: 54px;
-          border-radius: 14px;
+          width: 48px;
+          height: 48px;
+          border-radius: 12px;
           padding: 2px;
           background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd, #00d2d3, #ff9f43, #10ac84, #ee5a6f, #ff6b6b);
           background-size: 400% 400%;
           animation: gradientShift 4s ease-in-out infinite;
+          z-index: 5;
         }
 
         .nav-logo {
-          width: 50px;
-          height: 50px;
+          width: 44px;
+          height: 44px;
           background: linear-gradient(135deg, #495057, #6c757d);
-          border-radius: 12px;
+          border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 24px;
+          font-size: 20px;
           color: white;
           font-weight: 300;
-          box-shadow: 0 4px 15px rgba(73, 80, 87, 0.2);
+          box-shadow: 0 2px 10px rgba(73, 80, 87, 0.2);
           position: relative;
-          z-index: 2;
+          z-index: 6;
           overflow: hidden;
         }
 
@@ -361,9 +366,10 @@ export default function HomePage() {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-size: 24px;
+          font-size: 20px;
           color: white;
           animation: winkEye 4s ease-in-out infinite;
+          z-index: 7;
         }
 
         @keyframes winkEye {
@@ -402,13 +408,15 @@ export default function HomePage() {
         }
 
         .nav-brand {
-          font-size: 1.8rem;
+          font-size: 1.5rem;
           font-weight: 700;
           background: linear-gradient(135deg, #495057, #6c757d);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           user-select: none;
+          position: relative;
+          z-index: 10;
         }
 
         /* NAVIGATION LINKS - CENTRADOS */
