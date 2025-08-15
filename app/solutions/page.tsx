@@ -1,9 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function SolutionsPage() {
+  const [notification, setNotification] = useState({ show: false, message: '', type: 'info' })
+
   useEffect(() => {
     // Animaciones de entrada
     const observerOptions = {
@@ -26,13 +28,23 @@ export default function SolutionsPage() {
     return () => observer.disconnect()
   }, [])
 
+  const showNotification = (message: string, type: string = 'info') => {
+    setNotification({ show: true, message, type })
+    setTimeout(() => {
+      setNotification({ show: false, message: '', type: 'info' })
+    }, 3000)
+  }
+
+  const handleDemoRequest = (solutionName: string) => {
+    showNotification(`Demo request for ${solutionName} submitted!`, 'info')
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* NAVIGATION BAR */}
+    <div className="page-container">
+      {/* NAVIGATION BAR - MISMO EN TODAS LAS PÁGINAS */}
       <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo Section */}
             <Link href="/" className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
               <div className="nav-logo-container">
                 <div className="nav-logo"></div>
@@ -40,7 +52,6 @@ export default function SolutionsPage() {
               <div className="nav-brand">Opsis Suite</div>
             </Link>
 
-            {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
                 Home
@@ -59,440 +70,217 @@ export default function SolutionsPage() {
               </Link>
             </div>
 
-            {/* CTA Button */}
-            <Link 
-              href="/login" 
-              className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-            >
+            {/* MISMO BOTÓN EN TODAS PARTES */}
+            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="py-20 px-8 text-center">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-br from-gray-900 to-gray-600 bg-clip-text text-transparent tracking-tight leading-tight fade-in">
-            Enterprise Solutions for Complete Business Control
-          </h1>
-          <p className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto font-normal leading-relaxed fade-in">
-            Discover our comprehensive suite of integrated management solutions designed specifically for modern construction companies and equipment-heavy businesses.
+      {/* HERO SECTION - EXACTO COMO WIX */}
+      <section className="hero-section">
+        <div className="hero-container">
+          <h1 className="hero-title fade-in">Enterprise Solutions</h1>
+          <p className="hero-subtitle fade-in">
+            Comprehensive business management tools designed to streamline operations, optimize workflows, and drive growth across every department of your organization.
           </p>
         </div>
       </section>
 
-      {/* SOLUTIONS GRID */}
-      <section className="py-20 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16">
+      {/* SOLUTIONS SECTION - EXACTO COMO WIX */}
+      <section className="solutions-section">
+        <div className="section-container">
+          <div className="solutions-grid">
             
-            {/* OPSIS WAREHOUSE */}
-            <div className="solution-detail bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center text-5xl text-white shadow-lg">
-                  📦
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Opsis Warehouse</h2>
-                  <p className="text-lg text-emerald-600 font-semibold">Complete Inventory Management</p>
+            {/* WAREHOUSE SOLUTION */}
+            <div className="solution-card warehouse-card fade-in">
+              <div className="solution-header">
+                <div className="solution-icon">📦</div>
+                <div className="solution-title-section">
+                  <h2>Opsis Warehouse</h2>
+                  <p className="solution-subtitle">Inventory & Equipment Management</p>
                 </div>
               </div>
-              
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                Transform your warehouse operations with our comprehensive inventory management system designed specifically for construction companies and equipment-heavy businesses.
+              <p className="solution-description">
+                Complete inventory management system with real-time tracking, automated workflows, and comprehensive reporting. Perfect for managing equipment, supplies, and assets across multiple locations.
               </p>
-
-              <div className="space-y-6 mb-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features:</h3>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Real-time Equipment Tracking</h4>
-                      <p className="text-gray-600 text-sm">Monitor location and status instantly</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Automated Workflows</h4>
-                      <p className="text-gray-600 text-sm">Streamlined request processing</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Multi-role Access</h4>
-                      <p className="text-gray-600 text-sm">5 permission levels for teams</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Mobile Interface</h4>
-                      <p className="text-gray-600 text-sm">Field-ready mobile access</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Advanced Reporting</h4>
-                      <p className="text-gray-600 text-sm">Comprehensive analytics dashboard</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Maintenance Scheduling</h4>
-                      <p className="text-gray-600 text-sm">Automated maintenance alerts</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Link 
-                  href="/pricing" 
-                  className="bg-emerald-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-600 transition-colors"
-                >
-                  View Pricing
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="border-2 border-emerald-500 text-emerald-600 px-6 py-3 rounded-xl font-semibold hover:bg-emerald-50 transition-colors"
+              <ul className="solution-features">
+                <li>Real-time equipment tracking and monitoring</li>
+                <li>Automated request processing and approvals</li>
+                <li>Mobile-optimized interface for field operations</li>
+                <li>Advanced reporting and analytics dashboard</li>
+                <li>Inspection workflows and compliance tracking</li>
+                <li>Barcode/QR code scanning integration</li>
+                <li>Multi-location inventory management</li>
+                <li>Custom alerts and notifications</li>
+              </ul>
+              <div className="solution-cta">
+                <button 
+                  onClick={() => handleDemoRequest('Opsis Warehouse')} 
+                  className="demo-btn"
                 >
                   Request Demo
-                </Link>
+                </button>
               </div>
             </div>
 
-            {/* OPSIS TIMESYNC */}
-            <div className="solution-detail bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center text-5xl text-white shadow-lg">
-                  ⚡
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Opsis TimeSync</h2>
-                  <p className="text-lg text-cyan-600 font-semibold">Time Management & Scheduling</p>
+            {/* TIMESYNC SOLUTION */}
+            <div className="solution-card timesync-card fade-in">
+              <div className="solution-header">
+                <div className="solution-icon">⚡</div>
+                <div className="solution-title-section">
+                  <h2>Opsis TimeSync</h2>
+                  <p className="solution-subtitle">Scheduling & Time Management</p>
                 </div>
               </div>
-              
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                Optimize your workforce productivity with intelligent scheduling and time tracking solutions designed for field teams and project-based work.
+              <p className="solution-description">
+                Advanced employee scheduling and time synchronization platform that optimizes workforce productivity through intelligent scheduling, real-time tracking, and seamless payroll integration.
               </p>
-
-              <div className="space-y-6 mb-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features:</h3>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Smart Scheduling</h4>
-                      <p className="text-gray-600 text-sm">AI-powered shift optimization</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Mobile Time Tracking</h4>
-                      <p className="text-gray-600 text-sm">GPS-enabled clock in/out</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Project Allocation</h4>
-                      <p className="text-gray-600 text-sm">Time tracking by project</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Overtime Management</h4>
-                      <p className="text-gray-600 text-sm">Automated overtime calculations</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Payroll Integration</h4>
-                      <p className="text-gray-600 text-sm">Seamless payroll connectivity</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-cyan-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Productivity Analytics</h4>
-                      <p className="text-gray-600 text-sm">Team performance insights</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Link 
-                  href="/pricing" 
-                  className="bg-cyan-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-cyan-600 transition-colors"
-                >
-                  View Pricing
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="border-2 border-cyan-500 text-cyan-600 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-50 transition-colors"
+              <ul className="solution-features">
+                <li>Smart shift scheduling with AI optimization</li>
+                <li>Mobile time tracking and clock in/out</li>
+                <li>Project-based time allocation and tracking</li>
+                <li>Overtime management and approval workflows</li>
+                <li>Payroll system integration ready</li>
+                <li>Employee availability management</li>
+                <li>Schedule conflict detection and resolution</li>
+                <li>Real-time labor cost tracking</li>
+              </ul>
+              <div className="solution-cta">
+                <button 
+                  onClick={() => handleDemoRequest('Opsis TimeSync')} 
+                  className="demo-btn"
                 >
                   Request Demo
-                </Link>
+                </button>
               </div>
             </div>
 
-            {/* OPSIS HR */}
-            <div className="solution-detail bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl flex items-center justify-center text-5xl text-white shadow-lg">
-                  👥
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Opsis HR</h2>
-                  <p className="text-lg text-purple-600 font-semibold">Human Resources Management</p>
+            {/* HR SOLUTION */}
+            <div className="solution-card hr-card fade-in">
+              <div className="solution-header">
+                <div className="solution-icon">👥</div>
+                <div className="solution-title-section">
+                  <h2>Opsis HR</h2>
+                  <p className="solution-subtitle">Human Resources Management</p>
                 </div>
               </div>
-              
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                Comprehensive HR solutions designed to manage your growing workforce with automated processes and compliance tracking for construction industry requirements.
+              <p className="solution-description">
+                Comprehensive human resources management platform that streamlines employee lifecycle management, performance tracking, and compliance monitoring for growing organizations.
               </p>
-
-              <div className="space-y-6 mb-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features:</h3>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Employee Management</h4>
-                      <p className="text-gray-600 text-sm">Complete employee lifecycle</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Performance Tracking</h4>
-                      <p className="text-gray-600 text-sm">Goal setting and reviews</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Benefits Administration</h4>
-                      <p className="text-gray-600 text-sm">Health, insurance, and benefits</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Compliance Monitoring</h4>
-                      <p className="text-gray-600 text-sm">Safety and regulatory compliance</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Training Management</h4>
-                      <p className="text-gray-600 text-sm">Skills development tracking</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-purple-600 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Document Management</h4>
-                      <p className="text-gray-600 text-sm">Secure document storage</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Link 
-                  href="/pricing" 
-                  className="bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors"
-                >
-                  View Pricing
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-colors"
+              <ul className="solution-features">
+                <li>Complete employee profile management</li>
+                <li>Performance tracking and review cycles</li>
+                <li>Benefits administration and enrollment</li>
+                <li>Compliance monitoring and reporting</li>
+                <li>Training and development tracking</li>
+                <li>Employee self-service portal</li>
+                <li>Document management and storage</li>
+                <li>Automated workflow approvals</li>
+              </ul>
+              <div className="solution-cta">
+                <button 
+                  onClick={() => handleDemoRequest('Opsis HR')} 
+                  className="demo-btn"
                 >
                   Request Demo
-                </Link>
+                </button>
               </div>
             </div>
 
-            {/* OPSIS FINANCE */}
-            <div className="solution-detail bg-white rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-300 fade-in">
-              <div className="flex items-center gap-6 mb-8">
-                <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-5xl text-white shadow-lg">
-                  💰
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">Opsis Finance</h2>
-                  <p className="text-lg text-orange-600 font-semibold">Financial Management & Analytics</p>
+            {/* FINANCE SOLUTION */}
+            <div className="solution-card finance-card fade-in">
+              <div className="solution-header">
+                <div className="solution-icon">💰</div>
+                <div className="solution-title-section">
+                  <h2>Opsis Finance</h2>
+                  <p className="solution-subtitle">Financial Management & Analytics</p>
                 </div>
               </div>
-              
-              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                Take control of your financial operations with advanced budgeting, expense tracking, and financial analytics designed for construction project management.
+              <p className="solution-description">
+                Advanced financial tracking and budget control system with comprehensive analytics capabilities, designed to optimize costs, track ROI, and provide actionable financial insights.
               </p>
-
-              <div className="space-y-6 mb-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features:</h3>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Budget Management</h4>
-                      <p className="text-gray-600 text-sm">Project budget planning and tracking</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Expense Tracking</h4>
-                      <p className="text-gray-600 text-sm">Real-time expense monitoring</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Financial Reporting</h4>
-                      <p className="text-gray-600 text-sm">Comprehensive financial dashboards</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Cost Analysis</h4>
-                      <p className="text-gray-600 text-sm">Project profitability analysis</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">ROI Optimization</h4>
-                      <p className="text-gray-600 text-sm">Investment return tracking</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-500 font-bold text-lg mt-1">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">Integration Ready</h4>
-                      <p className="text-gray-600 text-sm">Connect with accounting systems</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Link 
-                  href="/pricing" 
-                  className="bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition-colors"
-                >
-                  View Pricing
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="border-2 border-orange-500 text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors"
+              <ul className="solution-features">
+                <li>Comprehensive budget management and planning</li>
+                <li>Automated expense tracking and categorization</li>
+                <li>Advanced financial reporting and dashboards</li>
+                <li>Cost analysis and optimization tools</li>
+                <li>ROI tracking and performance metrics</li>
+                <li>Invoice and payment processing</li>
+                <li>Financial forecasting and projections</li>
+                <li>Integration with accounting systems</li>
+              </ul>
+              <div className="solution-cta">
+                <button 
+                  onClick={() => handleDemoRequest('Opsis Finance')} 
+                  className="demo-btn"
                 >
                   Request Demo
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INTEGRATION SECTION */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6 fade-in">Integrated Solutions That Work Together</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto fade-in">
-            Our modular approach allows you to start with one solution and expand as your business grows, with seamless data flow between all modules.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 fade-in">
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
-              <div className="text-4xl mb-4">🔄</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Seamless Integration</h3>
-              <p className="text-gray-600">All modules share data automatically, eliminating duplicate entry and ensuring consistency across your operations.</p>
+      {/* BENEFITS SECTION - EXACTO COMO WIX */}
+      <section className="benefits-section">
+        <div className="benefits-container">
+          <h2 className="benefits-title fade-in">Why Choose Opsis Suite?</h2>
+          <div className="benefits-grid">
+            <div className="benefit-item fade-in">
+              <span className="benefit-icon">🚀</span>
+              <h3 className="benefit-title">Rapid Implementation</h3>
+              <p className="benefit-description">Get up and running in days, not months. Our streamlined setup process ensures quick deployment across your organization.</p>
             </div>
-            
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
-              <div className="text-4xl mb-4">📈</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Scalable Growth</h3>
-              <p className="text-gray-600">Start with the modules you need today and add more as your business expands, with no disruption to existing workflows.</p>
+            <div className="benefit-item fade-in">
+              <span className="benefit-icon">🔗</span>
+              <h3 className="benefit-title">Seamless Integration</h3>
+              <p className="benefit-description">Connect with your existing systems effortlessly. Our platform integrates with popular business tools and software.</p>
             </div>
-            
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Single Dashboard</h3>
-              <p className="text-gray-600">Monitor all aspects of your business from one unified dashboard with real-time insights and actionable analytics.</p>
+            <div className="benefit-item fade-in">
+              <span className="benefit-icon">📊</span>
+              <h3 className="benefit-title">Real-time Analytics</h3>
+              <p className="benefit-description">Make data-driven decisions with comprehensive dashboards and real-time reporting across all business functions.</p>
+            </div>
+            <div className="benefit-item fade-in">
+              <span className="benefit-icon">🛡️</span>
+              <h3 className="benefit-title">Enterprise Security</h3>
+              <p className="benefit-description">Bank-level security with SOC 2 compliance, ensuring your business data is protected at all times.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-20 px-8 bg-gradient-to-r from-gray-700 to-gray-600 text-white text-center">
-        <div className="max-w-4xl mx-auto fade-in">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business Operations?</h2>
-          <p className="text-xl text-gray-200 mb-8">
-            Choose the solutions that fit your needs and start optimizing your operations today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="bg-white text-gray-700 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-colors"
-            >
-              Schedule a Demo
+      {/* CTA SECTION - EXACTO COMO WIX */}
+      <section className="cta-section">
+        <div className="cta-container fade-in">
+          <h2 className="cta-title">Ready to Streamline Your Operations?</h2>
+          <p className="cta-subtitle">Join hundreds of companies already using Opsis Suite to optimize their business processes and drive growth.</p>
+          <div className="cta-buttons">
+            {/* MISMO BOTÓN EN TODAS PARTES */}
+            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+              Start Free Trial
             </Link>
-            <Link 
-              href="/pricing" 
-              className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-gray-700 transition-colors"
-            >
-              View Pricing Plans
+            <Link href="/contact" className="border-2 border-gray-700 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 hover:text-white transition-all">
+              Contact Sales
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* NOTIFICATION */}
+      {notification.show && (
+        <div className={`notification ${notification.type} show`}>
+          {notification.message}
+        </div>
+      )}
+
+      {/* FOOTER - MISMO EN TODAS LAS PÁGINAS */}
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
-            {/* Solutions */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Solutions</h3>
               <ul className="space-y-3 text-gray-400">
@@ -502,8 +290,6 @@ export default function SolutionsPage() {
                 <li><Link href="/solutions" className="hover:text-white transition-colors">Financial Management</Link></li>
               </ul>
             </div>
-
-            {/* Company */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Company</h3>
               <ul className="space-y-3 text-gray-400">
@@ -513,8 +299,6 @@ export default function SolutionsPage() {
                 <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
               </ul>
             </div>
-
-            {/* Platform */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Platform</h3>
               <ul className="space-y-3 text-gray-400">
@@ -524,8 +308,6 @@ export default function SolutionsPage() {
                 <li><Link href="/login" className="hover:text-white transition-colors">Login</Link></li>
               </ul>
             </div>
-
-            {/* Legal */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Legal</h3>
               <ul className="space-y-3 text-gray-400">
@@ -536,15 +318,36 @@ export default function SolutionsPage() {
               </ul>
             </div>
           </div>
-
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Opsis Suite. All rights reserved. | Enterprise Management Platform v1.0.0</p>
           </div>
         </div>
       </footer>
 
-      {/* STYLES */}
+      {/* STYLES - Exacto como el HTML de Wix establecido */}
       <style jsx>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+          overflow-x: hidden;
+        }
+        
+        .page-container {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          color: #1d1d1f;
+          line-height: 1.6;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+          height: auto;
+        }
+
         .nav-logo-container {
           position: relative;
           width: 54px;
@@ -628,7 +431,353 @@ export default function SolutionsPage() {
           background-clip: text;
           user-select: none;
         }
-        
+
+        /* HERO SECTION */
+        .hero-section {
+          padding: 5rem 2rem 4rem;
+          text-align: center;
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 20% 80%, rgba(32, 201, 151, 0.1) 0%, transparent 50%), 
+                      radial-gradient(circle at 80% 20%, rgba(13, 202, 240, 0.1) 0%, transparent 50%);
+          animation: subtleFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(15px, -10px) rotate(1deg); }
+          66% { transform: translate(-10px, 10px) rotate(-1deg); }
+        }
+
+        .hero-container {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 10;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          background: linear-gradient(135deg, #1d1d1f, #495057);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+          color: #6c757d;
+          margin-bottom: 3rem;
+          font-weight: 400;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.5;
+        }
+
+        /* SOLUTIONS SECTION */
+        .solutions-section {
+          padding: 4rem 2rem;
+          background: white;
+        }
+
+        .section-container {
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .solutions-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 3rem;
+        }
+
+        .solution-card {
+          background: linear-gradient(135deg, #ffffff, #f8f9fa);
+          border: 1px solid rgba(210, 210, 215, 0.3);
+          border-radius: 32px;
+          padding: 3rem 2.5rem;
+          text-align: left;
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
+          height: auto;
+          min-height: 450px;
+        }
+
+        .solution-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: linear-gradient(135deg, #20c997, #17a2b8);
+          border-radius: 32px 32px 0 0;
+        }
+
+        .solution-card:hover {
+          transform: translateY(-15px);
+          box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+          background: white;
+        }
+
+        .solution-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 2rem;
+        }
+
+        .solution-icon {
+          width: 100px;
+          height: 100px;
+          background: linear-gradient(135deg, #495057, #6c757d);
+          border-radius: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 3rem;
+          color: white;
+          margin-right: 1.5rem;
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+          flex-shrink: 0;
+        }
+
+        .solution-title-section h2 {
+          font-size: 2rem;
+          font-weight: 800;
+          color: #1d1d1f;
+          margin-bottom: 0.5rem;
+          line-height: 1.2;
+        }
+
+        .solution-subtitle {
+          color: #6c757d;
+          font-size: 1rem;
+          font-weight: 500;
+        }
+
+        .solution-description {
+          color: #495057;
+          margin-bottom: 2rem;
+          font-size: 1.1rem;
+          line-height: 1.7;
+        }
+
+        .solution-features {
+          list-style: none;
+          margin-bottom: 2.5rem;
+        }
+
+        .solution-features li {
+          color: #495057;
+          margin-bottom: 1rem;
+          padding-left: 2rem;
+          position: relative;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .solution-features li::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: #20c997;
+          font-weight: bold;
+          font-size: 1.2rem;
+          background: rgba(32, 201, 151, 0.1);
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        }
+
+        .solution-cta {
+          margin-top: auto;
+        }
+
+        .demo-btn {
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 16px;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          width: 100%;
+          text-align: center;
+        }
+
+        .demo-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 30px rgba(73, 80, 87, 0.3);
+        }
+
+        /* BENEFITS SECTION */
+        .benefits-section {
+          padding: 4rem 2rem;
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          text-align: center;
+        }
+
+        .benefits-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .benefits-title {
+          font-size: 2.8rem;
+          font-weight: 700;
+          margin-bottom: 3rem;
+          color: white;
+        }
+
+        .benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2.5rem;
+        }
+
+        .benefit-item {
+          padding: 2rem 1.5rem;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 24px;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-icon {
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+          display: block;
+        }
+
+        .benefit-title {
+          font-size: 1.4rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: white;
+        }
+
+        .benefit-description {
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.6;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+          padding: 4rem 2rem;
+          background: #f8f9fa;
+          text-align: center;
+        }
+
+        .cta-container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .cta-title {
+          font-size: 2.8rem;
+          font-weight: 700;
+          color: #1d1d1f;
+          margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+          font-size: 1.2rem;
+          color: #6c757d;
+          margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .cta-btn {
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          border: none;
+          padding: 1.2rem 3rem;
+          border-radius: 20px;
+          font-size: 1.2rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        .cta-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
+        }
+
+        .cta-btn.secondary {
+          background: transparent;
+          color: #495057;
+          border: 2px solid #495057;
+        }
+
+        .cta-btn.secondary:hover {
+          background: #495057;
+          color: white;
+        }
+
+        /* NOTIFICATION */
+        .notification {
+          position: fixed;
+          top: 1rem;
+          right: 1rem;
+          background: linear-gradient(135deg, #20c997, #17a2b8);
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(32, 201, 151, 0.3);
+          transform: translateY(-100px);
+          opacity: 0;
+          transition: all 0.3s ease;
+          z-index: 1001;
+        }
+
+        .notification.show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .notification.info {
+          background: linear-gradient(135deg, #20c997, #17a2b8);
+          box-shadow: 0 4px 20px rgba(32, 201, 151, 0.3);
+        }
+
         .fade-in {
           opacity: 0;
           transform: translateY(30px);
@@ -638,6 +787,37 @@ export default function SolutionsPage() {
         .fade-in.visible {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+          .hero-section { padding: 4rem 1.5rem 3rem; }
+          .hero-title { font-size: 2.5rem; margin-bottom: 1rem; }
+          .hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
+          .solutions-section { padding: 3rem 1.5rem; }
+          .solutions-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .solution-card { min-height: auto; padding: 2rem 1.5rem; }
+          .solution-header { flex-direction: column; text-align: center; }
+          .solution-icon { margin-right: 0; margin-bottom: 1rem; }
+          .solution-title-section h2 { font-size: 1.6rem; }
+          .benefits-section { padding: 3rem 1.5rem; }
+          .benefits-title { font-size: 2rem; }
+          .cta-section { padding: 3rem 1.5rem; }
+          .cta-title { font-size: 2rem; }
+          .cta-buttons { flex-direction: column; align-items: center; }
+          .cta-btn { width: 100%; max-width: 300px; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+          .hero-section { padding: 5rem 2rem 3.5rem; }
+          .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+          .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1200px) {
+          .hero-title { font-size: 4rem; }
+          .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+          .benefits-grid { grid-template-columns: repeat(4, 1fr); }
         }
       `}</style>
     </div>
