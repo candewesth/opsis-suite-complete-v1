@@ -28,46 +28,51 @@ export default function HomePage() {
 
   return (
     <div className="page-container">
-      {/* NAVIGATION BAR */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+      {/* NAVIGATION BAR - CENTRADO */}
+      <nav className="navigation-bar">
+        <div className="nav-container">
+          <div className="nav-content">
             {/* Logo Section */}
-            <Link href="/" className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+            <Link href="/" className="logo-section">
               <div className="nav-logo-container">
                 <div className="nav-logo"></div>
               </div>
               <div className="nav-brand">Opsis Suite</div>
             </Link>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-emerald-600 font-semibold">
+            {/* Navigation Links - Desktop */}
+            <div className="nav-links-desktop">
+              <Link href="/" className="nav-link active">
                 Home
               </Link>
-              <Link href="/solutions" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <Link href="/solutions" className="nav-link">
                 Solutions
               </Link>
-              <Link href="/features" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <Link href="/features" className="nav-link">
                 Features
               </Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <Link href="/pricing" className="nav-link">
                 Pricing
               </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <Link href="/contact" className="nav-link">
                 Contact
               </Link>
             </div>
 
-            {/* CTA Button - MISMO EN TODOS LADOS */}
-            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+            {/* CTA Button */}
+            <Link href="/login" className="nav-cta-button">
               Access Workspace
             </Link>
+
+            {/* Mobile Menu Button */}
+            <button className="mobile-menu-button">
+              ☰
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION - EXACTO COMO EN WIX */}
+      {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-container">
           <h1 className="hero-title fade-in">
@@ -77,18 +82,17 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            {/* MISMO BOTÓN EN TODOS LADOS */}
-            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+            <Link href="/login" className="hero-cta-primary">
               Access Workspace
             </Link>
-            <Link href="/solutions" className="border-2 border-gray-700 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 hover:text-white transition-all">
+            <Link href="/solutions" className="hero-cta-secondary">
               Explore Solutions
             </Link>
           </div>
         </div>
       </section>
 
-      {/* SOLUTIONS SECTION - EXACTO COMO EN WIX */}
+      {/* SOLUTIONS SECTION */}
       <section className="solutions-section" id="solutions">
         <div className="section-container">
           <div className="solutions-header fade-in">
@@ -113,9 +117,6 @@ export default function HomePage() {
                 <li>Advanced reporting & analytics</li>
                 <li>Inspection workflows</li>
               </ul>
-              <div className="solution-card-footer">
-                {/* Removed pricing - clean design */}
-              </div>
             </div>
 
             {/* Opsis TimeSync */}
@@ -132,9 +133,6 @@ export default function HomePage() {
                 <li>Overtime management</li>
                 <li>Payroll integration ready</li>
               </ul>
-              <div className="solution-card-footer">
-                {/* Removed availability date - clean design */}
-              </div>
             </div>
 
             {/* Opsis HR */}
@@ -151,9 +149,6 @@ export default function HomePage() {
                 <li>Compliance monitoring</li>
                 <li>Training management</li>
               </ul>
-              <div className="solution-card-footer">
-                {/* Removed availability date - clean design */}
-              </div>
             </div>
 
             {/* Opsis Finance */}
@@ -170,15 +165,12 @@ export default function HomePage() {
                 <li>Cost analysis</li>
                 <li>ROI optimization</li>
               </ul>
-              <div className="solution-card-footer">
-                {/* Removed availability date - clean design */}
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* STATS SECTION - EXACTO COMO EN WIX */}
+      {/* STATS SECTION */}
       <section className="stats-section">
         <div className="stats-container">
           <div className="stats-grid">
@@ -202,76 +194,77 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA SECTION - EXACTO COMO EN WIX */}
+      {/* CTA SECTION */}
       <section className="cta-section">
         <div className="cta-container fade-in">
           <h2 className="cta-title">Ready to Transform Your Operations?</h2>
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          {/* MISMO BOTÓN EN TODOS LADOS */}
-          <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+          <Link href="/login" className="cta-button">
             Access Workspace
           </Link>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+      {/* FOOTER - CENTRADO */}
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="footer-grid">
             {/* Solutions */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-gray-300">Solutions</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><Link href="/solutions" className="hover:text-white transition-colors">Warehouse Management</Link></li>
-                <li><Link href="/solutions" className="hover:text-white transition-colors">Time Synchronization</Link></li>
-                <li><Link href="/solutions" className="hover:text-white transition-colors">Human Resources</Link></li>
-                <li><Link href="/solutions" className="hover:text-white transition-colors">Financial Management</Link></li>
+            <div className="footer-column">
+              <h3 className="footer-title">Solutions</h3>
+              <ul className="footer-links">
+                <li><Link href="/solutions" className="footer-link">Warehouse Management</Link></li>
+                <li><Link href="/solutions" className="footer-link">Time Synchronization</Link></li>
+                <li><Link href="/solutions" className="footer-link">Human Resources</Link></li>
+                <li><Link href="/solutions" className="footer-link">Financial Management</Link></li>
               </ul>
             </div>
 
             {/* Company */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-gray-300">Company</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
+            <div className="footer-column">
+              <h3 className="footer-title">Company</h3>
+              <ul className="footer-links">
+                <li><Link href="/about" className="footer-link">About Us</Link></li>
+                <li><Link href="/contact" className="footer-link">Contact</Link></li>
+                <li><Link href="/careers" className="footer-link">Careers</Link></li>
+                <li><Link href="/support" className="footer-link">Support</Link></li>
               </ul>
             </div>
 
             {/* Platform */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-gray-300">Platform</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><Link href="/features" className="hover:text-white transition-colors">Features</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link href="/security" className="hover:text-white transition-colors">Security</Link></li>
-                <li><Link href="/login" className="hover:text-white transition-colors">Login</Link></li>
+            <div className="footer-column">
+              <h3 className="footer-title">Platform</h3>
+              <ul className="footer-links">
+                <li><Link href="/features" className="footer-link">Features</Link></li>
+                <li><Link href="/pricing" className="footer-link">Pricing</Link></li>
+                <li><Link href="/security" className="footer-link">Security</Link></li>
+                <li><Link href="/login" className="footer-link">Login</Link></li>
               </ul>
             </div>
 
             {/* Legal */}
-            <div>
-              <h3 className="text-lg font-semibold mb-6 text-gray-300">Legal</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-                <li><Link href="/doc" className="hover:text-white transition-colors">Documentation</Link></li>
-                <li><Link href="/compliance" className="hover:text-white transition-colors">Compliance</Link></li>
+            <div className="footer-column">
+              <h3 className="footer-title">Legal</h3>
+              <ul className="footer-links">
+                <li><Link href="/privacy" className="footer-link">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="footer-link">Terms of Service</Link></li>
+                <li><Link href="/doc" className="footer-link">Documentation</Link></li>
+                <li><Link href="/compliance" className="footer-link">Compliance</Link></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Opsis Suite. All rights reserved. | Enterprise Management Platform v1.0.0</p>
+          <div className="footer-bottom">
+            <p className="footer-copyright">
+              &copy; 2025 Opsis Suite. All rights reserved. | Enterprise Management Platform v1.0.0
+            </p>
           </div>
         </div>
       </footer>
 
-      {/* STYLES - EXACTO COMO EL HTML ORIGINAL DE WIX */}
+      {/* STYLES - CSS CORREGIDO PARA CENTRADO PERFECTO */}
       <style jsx>{`
         * {
           margin: 0;
@@ -292,10 +285,48 @@ export default function HomePage() {
           margin: 0;
           padding: 0;
           overflow-x: hidden;
-          height: auto;
+          width: 100%;
         }
 
-        /* LOGO ANIMADO - EXACTO COMO WIX */
+        /* NAVIGATION BAR - CENTRADO PERFECTO */
+        .navigation-bar {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          width: 100%;
+        }
+
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          width: 100%;
+        }
+
+        .nav-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 70px;
+          width: 100%;
+        }
+
+        .logo-section {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          transition: transform 0.2s ease;
+        }
+
+        .logo-section:hover {
+          transform: scale(1.02);
+        }
+
+        /* LOGO ANIMADO - EXACTO COMO ESTABLECIDO */
         .nav-logo-container {
           position: relative;
           width: 54px;
@@ -380,7 +411,64 @@ export default function HomePage() {
           user-select: none;
         }
 
-        /* HERO SECTION - EXACTO COMO WIX */
+        /* NAVIGATION LINKS - CENTRADOS */
+        .nav-links-desktop {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          flex: 1;
+          justify-content: center;
+        }
+
+        .nav-link {
+          color: #495057;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.95rem;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .nav-link:hover {
+          color: #20c997;
+          background: rgba(32, 201, 151, 0.1);
+        }
+
+        .nav-link.active {
+          color: #20c997;
+          font-weight: 600;
+        }
+
+        .nav-cta-button {
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          text-decoration: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(73, 80, 87, 0.2);
+        }
+
+        .nav-cta-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.3);
+          background: linear-gradient(135deg, #3a3f44, #5a6268);
+        }
+
+        .mobile-menu-button {
+          display: none;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          color: #495057;
+          cursor: pointer;
+        }
+
+        /* HERO SECTION */
         .hero-section {
           padding: 5rem 2rem 4rem;
           text-align: center;
@@ -444,20 +532,51 @@ export default function HomePage() {
           align-items: center;
         }
 
-        @media (min-width: 640px) {
-          .hero-buttons {
-            flex-direction: row;
-          }
+        .hero-cta-primary {
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          text-decoration: none;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.2);
         }
 
-        /* SOLUTIONS SECTION - EXACTO COMO WIX */
+        .hero-cta-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
+          background: linear-gradient(135deg, #3a3f44, #5a6268);
+        }
+
+        .hero-cta-secondary {
+          background: transparent;
+          color: #495057;
+          text-decoration: none;
+          padding: 1rem 2rem;
+          border: 2px solid #495057;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+        }
+
+        .hero-cta-secondary:hover {
+          background: #495057;
+          color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.2);
+        }
+
+        /* SOLUTIONS SECTION */
         .solutions-section {
           padding: 4rem 2rem;
           background: white;
         }
 
         .section-container {
-          max-width: 1400px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
@@ -483,8 +602,10 @@ export default function HomePage() {
 
         .solutions-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           gap: 2rem;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         .solution-card {
@@ -565,24 +686,7 @@ export default function HomePage() {
           font-size: 11px;
         }
 
-        .solution-card-footer {
-          margin-top: auto;
-          padding-top: 1rem;
-        }
-
-        .solution-price {
-          color: #20c997;
-          font-weight: 700;
-          font-size: 1.1rem;
-        }
-
-        .solution-availability {
-          color: #fd7e14;
-          font-weight: 600;
-          font-size: 1rem;
-        }
-
-        /* STATS SECTION - EXACTO COMO WIX */
+        /* STATS SECTION */
         .stats-section {
           padding: 4rem 2rem;
           background: linear-gradient(135deg, #495057, #6c757d);
@@ -618,7 +722,7 @@ export default function HomePage() {
           font-weight: 500;
         }
 
-        /* CTA SECTION - EXACTO COMO WIX */
+        /* CTA SECTION */
         .cta-section {
           padding: 4rem 2rem;
           background: #f8f9fa;
@@ -643,7 +747,92 @@ export default function HomePage() {
           margin-bottom: 2.5rem;
         }
 
-        /* FADE IN ANIMATIONS - EXACTO COMO WIX */
+        .cta-button {
+          background: linear-gradient(135deg, #495057, #6c757d);
+          color: white;
+          text-decoration: none;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.2);
+          display: inline-block;
+        }
+
+        .cta-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
+          background: linear-gradient(135deg, #3a3f44, #5a6268);
+        }
+
+        /* FOOTER - CENTRADO PERFECTO */
+        .footer {
+          background: #1d1d1f;
+          color: white;
+          padding: 4rem 0 2rem;
+          width: 100%;
+        }
+
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          width: 100%;
+        }
+
+        .footer-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+          margin-bottom: 3rem;
+        }
+
+        .footer-column {
+          text-align: left;
+        }
+
+        .footer-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #f8f9fa;
+          margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .footer-links li {
+          margin-bottom: 0.75rem;
+        }
+
+        .footer-link {
+          color: #adb5bd;
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+          color: #20c997;
+        }
+
+        .footer-bottom {
+          border-top: 1px solid #495057;
+          padding-top: 2rem;
+          text-align: center;
+        }
+
+        .footer-copyright {
+          color: #adb5bd;
+          font-size: 0.9rem;
+          margin: 0;
+        }
+
+        /* FADE IN ANIMATIONS */
         .fade-in {
           opacity: 0;
           transform: translateY(30px);
@@ -655,28 +844,126 @@ export default function HomePage() {
           transform: translateY(0);
         }
 
-        /* RESPONSIVE - EXACTO COMO WIX */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-          .hero-section { padding: 4rem 1.5rem 3rem; }
-          .hero-title { font-size: 2.5rem; margin-bottom: 1rem; }
-          .hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
-          .solutions-section { padding: 3rem 1.5rem; }
-          .solutions-title { font-size: 2rem; }
-          .solution-card { padding: 2rem 1.5rem; }
-          .stats-section { padding: 3rem 1.5rem; }
-          .stat-number { font-size: 2.5rem; }
-          .cta-section { padding: 3rem 1.5rem; }
-          .cta-title { font-size: 2rem; }
+          .nav-links-desktop {
+            display: none;
+          }
+          
+          .mobile-menu-button {
+            display: block;
+          }
+          
+          .nav-container {
+            padding: 0 1rem;
+          }
+          
+          .hero-section {
+            padding: 4rem 1.5rem 3rem;
+          }
+          
+          .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+          }
+          
+          .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+          }
+          
+          .hero-buttons {
+            flex-direction: column;
+          }
+          
+          .solutions-section {
+            padding: 3rem 1.5rem;
+          }
+          
+          .solutions-title {
+            font-size: 2rem;
+          }
+          
+          .solution-card {
+            padding: 2rem 1.5rem;
+          }
+          
+          .stats-section {
+            padding: 3rem 1.5rem;
+          }
+          
+          .stat-number {
+            font-size: 2.5rem;
+          }
+          
+          .cta-section {
+            padding: 3rem 1.5rem;
+          }
+          
+          .cta-title {
+            font-size: 2rem;
+          }
+          
+          .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
+          
+          .footer {
+            padding: 3rem 0 2rem;
+          }
+        }
+
+        @media (min-width: 640px) {
+          .hero-buttons {
+            flex-direction: row;
+          }
         }
 
         @media (min-width: 1024px) {
-          .hero-title { font-size: 4rem; }
-          .solutions-grid { grid-template-columns: repeat(2, 1fr); }
-          .stats-grid { grid-template-columns: repeat(4, 1fr); }
+          .hero-title {
+            font-size: 4rem;
+          }
+          
+          .nav-links-desktop {
+            gap: 2.5rem;
+          }
+          
+          .solutions-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .stats-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+          
+          .footer-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
         }
 
         @media (min-width: 1200px) {
-          .solutions-grid { grid-template-columns: repeat(4, 1fr); }
+          .solutions-grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        /* UTILITY CLASSES */
+        .text-center {
+          text-align: center;
+        }
+        
+        .text-left {
+          text-align: left;
+        }
+        
+        .mx-auto {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .w-full {
+          width: 100%;
         }
       `}</style>
     </div>
