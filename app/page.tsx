@@ -450,7 +450,7 @@ export default function HomePage() {
         }
 
         .nav-cta-button {
-          background: linear-gradient(135deg, #495057, #6c757d);
+          background: #495057;
           color: white;
           text-decoration: none;
           padding: 0.75rem 1.5rem;
@@ -458,13 +458,14 @@ export default function HomePage() {
           font-weight: 600;
           font-size: 0.9rem;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(73, 80, 87, 0.2);
+          border: none;
+          cursor: pointer;
         }
 
         .nav-cta-button:hover {
+          background: #3a3f44;
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.3);
-          background: linear-gradient(135deg, #3a3f44, #5a6268);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         .mobile-menu-button {
@@ -541,21 +542,23 @@ export default function HomePage() {
         }
 
         .hero-cta-primary {
-          background: linear-gradient(135deg, #495057, #6c757d);
+          background: #495057;
           color: white;
           text-decoration: none;
           padding: 1rem 2rem;
-          border-radius: 12px;
+          border-radius: 8px;
           font-weight: 600;
           font-size: 1rem;
           transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.2);
+          border: none;
+          cursor: pointer;
+          display: inline-block;
         }
 
         .hero-cta-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
-          background: linear-gradient(135deg, #3a3f44, #5a6268);
+          background: #3a3f44;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         .hero-cta-secondary {
@@ -564,17 +567,18 @@ export default function HomePage() {
           text-decoration: none;
           padding: 1rem 2rem;
           border: 2px solid #495057;
-          border-radius: 12px;
+          border-radius: 8px;
           font-weight: 600;
           font-size: 1rem;
           transition: all 0.3s ease;
+          display: inline-block;
         }
 
         .hero-cta-secondary:hover {
           background: #495057;
           color: white;
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.2);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         /* SOLUTIONS SECTION */
@@ -756,22 +760,23 @@ export default function HomePage() {
         }
 
         .cta-button {
-          background: linear-gradient(135deg, #495057, #6c757d);
+          background: #495057;
           color: white;
           text-decoration: none;
           padding: 1rem 2rem;
-          border-radius: 12px;
+          border-radius: 8px;
           font-weight: 600;
           font-size: 1rem;
           transition: all 0.3s ease;
-          box-shadow: 0 8px 25px rgba(73, 80, 87, 0.2);
           display: inline-block;
+          border: none;
+          cursor: pointer;
         }
 
         .cta-button:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
-          background: linear-gradient(135deg, #3a3f44, #5a6268);
+          background: #3a3f44;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         /* FOOTER - CENTRADO PERFECTO */
