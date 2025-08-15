@@ -114,7 +114,7 @@ export default function HomePage() {
                 <li>Inspection workflows</li>
               </ul>
               <div className="solution-card-footer">
-                <div className="solution-price">Starting at $49/mo</div>
+                {/* Removed pricing - clean design */}
               </div>
             </div>
 
@@ -133,7 +133,7 @@ export default function HomePage() {
                 <li>Payroll integration ready</li>
               </ul>
               <div className="solution-card-footer">
-                <div className="solution-availability">Q2 2025</div>
+                {/* Removed availability date - clean design */}
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export default function HomePage() {
                 <li>Training management</li>
               </ul>
               <div className="solution-card-footer">
-                <div className="solution-availability">Q3 2025</div>
+                {/* Removed availability date - clean design */}
               </div>
             </div>
 
@@ -171,7 +171,7 @@ export default function HomePage() {
                 <li>ROI optimization</li>
               </ul>
               <div className="solution-card-footer">
-                <div className="solution-availability">Q4 2025</div>
+                {/* Removed availability date - clean design */}
               </div>
             </div>
           </div>
@@ -462,7 +462,7 @@ export default function HomePage() {
         }
 
         .solutions-header {
-          text-center;
+          text-align: center;
           margin-bottom: 4rem;
         }
 
