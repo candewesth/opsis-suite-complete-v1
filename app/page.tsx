@@ -218,8 +218,8 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12 text-left">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             {/* Solutions */}
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Solutions</h3>
