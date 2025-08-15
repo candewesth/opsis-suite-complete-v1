@@ -80,7 +80,7 @@ export default function HomePage() {
             <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
-            <Link href="/solutions" className="explore-solutions-btn">
+            <Link href="/solutions" className="border-2 border-gray-700 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 hover:text-white transition-all">
               Explore Solutions
             </Link>
           </div>
@@ -370,84 +370,6 @@ export default function HomePage() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           user-select: none;
-        }
-
-        /* BOTÓN EXPLORE SOLUTIONS */
-        .explore-solutions-btn {
-          background: transparent;
-          color: #495057;
-          border: 2px solid #495057;
-          padding: 0.5rem 1.5rem;
-          border-radius: 8px;
-          font-size: 0.95rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-decoration: none;
-          display: inline-block;
-        }
-
-        .explore-solutions-btn:hover {
-          background: #495057;
-          color: white;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
-        }
-
-        /* HERO SECTION */
-        .hero-section {
-          padding: 5rem 2rem 4rem;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .hero-section::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 30% 70%, rgba(108, 117, 125, 0.08) 0%, transparent 50%), 
-                      radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
-          animation: subtleFloat 20s ease-in-out infinite;
-        }
-
-        @keyframes subtleFloat {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          33% { transform: translate(10px, -10px) rotate(1deg); }
-          66% { transform: translate(-5px, 5px) rotate(-1deg); }
-        }
-
-        .hero-container {
-          max-width: 4xl;
-          margin: 0 auto;
-          position: relative;
-          z-index: 10;
-        }
-
-        .hero-title {
-          font-size: 3.5rem;
-          font-weight: 800;
-          margin-bottom: 1.5rem;
-          background: linear-gradient(135deg, #1d1d1f, #495057);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          letter-spacing: -2px;
-          line-height: 1.1;
-        }
-
-        .hero-subtitle {
-          font-size: 1.3rem;
-          color: #6c757d;
-          margin-bottom: 3rem;
-          font-weight: 400;
-          max-width: 3xl;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.5;
         }
 
         .hero-buttons {
