@@ -59,7 +59,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - MISMO EN TODOS LADOS */}
             <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
@@ -67,7 +67,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - EXACTO COMO EN WIX */}
       <section className="hero-section">
         <div className="hero-container">
           <h1 className="hero-title fade-in">
@@ -77,6 +77,7 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
+            {/* MISMO BOTÓN EN TODOS LADOS */}
             <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
               Access Workspace
             </Link>
@@ -87,7 +88,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SOLUTIONS SECTION */}
+      {/* SOLUTIONS SECTION - EXACTO COMO EN WIX */}
       <section className="solutions-section" id="solutions">
         <div className="section-container">
           <div className="solutions-header fade-in">
@@ -99,7 +100,7 @@ export default function HomePage() {
           
           <div className="solutions-grid">
             {/* Opsis Warehouse */}
-            <div className="solution-card fade-in">
+            <div className="solution-card warehouse-card fade-in">
               <div className="solution-icon">📦</div>
               <h3 className="solution-card-title">Opsis Warehouse</h3>
               <p className="solution-card-description">
@@ -118,7 +119,7 @@ export default function HomePage() {
             </div>
 
             {/* Opsis TimeSync */}
-            <div className="solution-card fade-in">
+            <div className="solution-card timesync-card fade-in">
               <div className="solution-icon">⚡</div>
               <h3 className="solution-card-title">Opsis TimeSync</h3>
               <p className="solution-card-description">
@@ -137,7 +138,7 @@ export default function HomePage() {
             </div>
 
             {/* Opsis HR */}
-            <div className="solution-card fade-in">
+            <div className="solution-card hr-card fade-in">
               <div className="solution-icon">👥</div>
               <h3 className="solution-card-title">Opsis HR</h3>
               <p className="solution-card-description">
@@ -156,7 +157,7 @@ export default function HomePage() {
             </div>
 
             {/* Opsis Finance */}
-            <div className="solution-card fade-in">
+            <div className="solution-card finance-card fade-in">
               <div className="solution-icon">💰</div>
               <h3 className="solution-card-title">Opsis Finance</h3>
               <p className="solution-card-description">
@@ -177,7 +178,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* STATS SECTION */}
+      {/* STATS SECTION - EXACTO COMO EN WIX */}
       <section className="stats-section">
         <div className="stats-container">
           <div className="stats-grid">
@@ -201,13 +202,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* CTA SECTION - EXACTO COMO EN WIX */}
       <section className="cta-section">
         <div className="cta-container fade-in">
           <h2 className="cta-title">Ready to Transform Your Operations?</h2>
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
+          {/* MISMO BOTÓN EN TODOS LADOS */}
           <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
             Access Workspace
           </Link>
@@ -269,12 +271,17 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* STYLES - Estilo Opsis Suite establecido */}
+      {/* STYLES - EXACTO COMO EL HTML ORIGINAL DE WIX */}
       <style jsx>{`
         * {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+        }
+        
+        html {
+          scroll-behavior: smooth;
+          overflow-x: hidden;
         }
         
         .page-container {
@@ -285,9 +292,10 @@ export default function HomePage() {
           margin: 0;
           padding: 0;
           overflow-x: hidden;
+          height: auto;
         }
 
-        /* LOGO ANIMADO */
+        /* LOGO ANIMADO - EXACTO COMO WIX */
         .nav-logo-container {
           position: relative;
           width: 54px;
@@ -372,12 +380,68 @@ export default function HomePage() {
           user-select: none;
         }
 
+        /* HERO SECTION - EXACTO COMO WIX */
+        .hero-section {
+          padding: 5rem 2rem 4rem;
+          text-align: center;
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 20% 80%, rgba(32, 201, 151, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(13, 202, 240, 0.1) 0%, transparent 50%);
+          animation: subtleFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(15px, -10px) rotate(1deg); }
+          66% { transform: translate(-10px, 10px) rotate(-1deg); }
+        }
+
+        .hero-container {
+          max-width: 800px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 10;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+          font-weight: 800;
+          margin-bottom: 1.5rem;
+          background: linear-gradient(135deg, #1d1d1f, #495057);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          letter-spacing: -2px;
+          line-height: 1.1;
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+          color: #6c757d;
+          margin-bottom: 3rem;
+          font-weight: 400;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.5;
+        }
+
         .hero-buttons {
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          align-items: center;
           justify-content: center;
+          align-items: center;
         }
 
         @media (min-width: 640px) {
@@ -386,19 +450,19 @@ export default function HomePage() {
           }
         }
 
-        /* SOLUTIONS SECTION */
+        /* SOLUTIONS SECTION - EXACTO COMO WIX */
         .solutions-section {
           padding: 4rem 2rem;
           background: white;
         }
 
         .section-container {
-          max-width: 7xl;
+          max-width: 1400px;
           margin: 0 auto;
         }
 
         .solutions-header {
-          text-align: center;
+          text-center;
           margin-bottom: 4rem;
         }
 
@@ -412,7 +476,7 @@ export default function HomePage() {
         .solutions-subtitle {
           font-size: 1.2rem;
           color: #6c757d;
-          max-width: 3xl;
+          max-width: 600px;
           margin: 0 auto;
         }
 
@@ -517,7 +581,7 @@ export default function HomePage() {
           font-size: 1rem;
         }
 
-        /* STATS SECTION */
+        /* STATS SECTION - EXACTO COMO WIX */
         .stats-section {
           padding: 4rem 2rem;
           background: linear-gradient(135deg, #495057, #6c757d);
@@ -526,7 +590,7 @@ export default function HomePage() {
         }
 
         .stats-container {
-          max-width: 6xl;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
@@ -553,7 +617,7 @@ export default function HomePage() {
           font-weight: 500;
         }
 
-        /* CTA SECTION */
+        /* CTA SECTION - EXACTO COMO WIX */
         .cta-section {
           padding: 4rem 2rem;
           background: #f8f9fa;
@@ -561,7 +625,7 @@ export default function HomePage() {
         }
 
         .cta-container {
-          max-width: 4xl;
+          max-width: 800px;
           margin: 0 auto;
         }
 
@@ -578,7 +642,7 @@ export default function HomePage() {
           margin-bottom: 2.5rem;
         }
 
-        /* FADE IN ANIMATIONS */
+        /* FADE IN ANIMATIONS - EXACTO COMO WIX */
         .fade-in {
           opacity: 0;
           transform: translateY(30px);
@@ -590,11 +654,11 @@ export default function HomePage() {
           transform: translateY(0);
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE - EXACTO COMO WIX */
         @media (max-width: 768px) {
           .hero-section { padding: 4rem 1.5rem 3rem; }
-          .hero-title { font-size: 2.5rem; }
-          .hero-subtitle { font-size: 1.1rem; }
+          .hero-title { font-size: 2.5rem; margin-bottom: 1rem; }
+          .hero-subtitle { font-size: 1.1rem; margin-bottom: 2rem; }
           .solutions-section { padding: 3rem 1.5rem; }
           .solutions-title { font-size: 2rem; }
           .solution-card { padding: 2rem 1.5rem; }
@@ -602,7 +666,6 @@ export default function HomePage() {
           .stat-number { font-size: 2.5rem; }
           .cta-section { padding: 3rem 1.5rem; }
           .cta-title { font-size: 2rem; }
-          .access-workspace-cta { width: 100%; max-width: 300px; }
         }
 
         @media (min-width: 1024px) {
