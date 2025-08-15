@@ -45,35 +45,43 @@ export default function SolutionsPage() {
       <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
-              <div className="nav-logo-container">
-                <div className="nav-logo"></div>
-              </div>
-              <div className="nav-brand">Opsis Suite</div>
-            </Link>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
-                Home
-              </Link>
-              <Link href="/solutions" className="text-emerald-600 font-semibold">
-                Solutions
-              </Link>
-              <Link href="/features" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
-                Features
-              </Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
-                Pricing
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
-                Contact
+            {/* Logo Section */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center gap-3 hover:scale-105 transition-transform duration-200">
+                <div className="nav-logo-container">
+                  <div className="nav-logo"></div>
+                </div>
+                <div className="nav-brand">Opsis Suite</div>
               </Link>
             </div>
 
-            {/* MISMO BOTÓN EN TODAS PARTES */}
-            <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-              Access Workspace
-            </Link>
+            {/* Navigation Links - CENTRADOS */}
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
+                <Link href="/" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+                  Home
+                </Link>
+                <Link href="/solutions" className="text-emerald-600 font-semibold">
+                  Solutions
+                </Link>
+                <Link href="/features" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+                  Features
+                </Link>
+                <Link href="/pricing" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+                  Pricing
+                </Link>
+                <Link href="/contact" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+                  Contact
+                </Link>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex items-center">
+              <Link href="/login" className="bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                Access Workspace
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -280,7 +288,7 @@ export default function SolutionsPage() {
       {/* FOOTER - MISMO EN TODAS LAS PÁGINAS */}
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="grid md:grid-cols-4 gap-8 mb-12 text-left">
             <div>
               <h3 className="text-lg font-semibold mb-6 text-gray-300">Solutions</h3>
               <ul className="space-y-3 text-gray-400">
