@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 export default function HomePage() {
   useEffect(() => {
     // SIMPLE NOTIFICATION SYSTEM
-    function showNotification(message, type) {
+    function showNotification(message: string, type?: string) {
       const notification = document.getElementById('notification');
       if (notification) {
         notification.textContent = message;
@@ -43,8 +43,8 @@ export default function HomePage() {
     function setupSolutionCards() {
       const cards = document.querySelectorAll('.solution-card');
       cards.forEach(card => {
-        card.addEventListener('click', function() {
-          const title = this.querySelector('.solution-title').textContent;
+        card.addEventListener('click', function(this: HTMLElement) {
+          const title = this.querySelector('.solution-title')?.textContent || '';
           showNotification(`Learn more about ${title} in our Solutions page!`, 'info');
           
           // Optional: Navigate to solutions page after notification
@@ -65,7 +65,7 @@ export default function HomePage() {
     setupSolutionCards();
 
     // Make functions available globally for click handlers
-    window.showNotification = showNotification;
+    (window as any).showNotification = showNotification;
   }, [])
 
   return (
@@ -95,12 +95,14 @@ export default function HomePage() {
                 display: 'inline-block'
               }}
               onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-3px)'
-                e.target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)'
+                const target = e.target as HTMLElement;
+                target.style.transform = 'translateY(-3px)';
+                target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
+                const target = e.target as HTMLElement;
+                target.style.transform = 'translateY(0)';
+                target.style.boxShadow = 'none';
               }}
             >
               Access Workspace
@@ -122,16 +124,18 @@ export default function HomePage() {
                 display: 'inline-block'
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = '#495057'
-                e.target.style.color = 'white'
-                e.target.style.transform = 'translateY(-3px)'
-                e.target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)'
+                const target = e.target as HTMLElement;
+                target.style.background = '#495057';
+                target.style.color = 'white';
+                target.style.transform = 'translateY(-3px)';
+                target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = 'transparent'
-                e.target.style.color = '#495057'
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
+                const target = e.target as HTMLElement;
+                target.style.background = 'transparent';
+                target.style.color = '#495057';
+                target.style.transform = 'translateY(0)';
+                target.style.boxShadow = 'none';
               }}
             >
               Explore Solutions
@@ -257,12 +261,14 @@ export default function HomePage() {
               display: 'inline-block'
             }}
             onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-3px)'
-              e.target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)'
+              const target = e.target as HTMLElement;
+              target.style.transform = 'translateY(-3px)';
+              target.style.boxShadow = '0 15px 40px rgba(73, 80, 87, 0.3)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0)'
-              e.target.style.boxShadow = 'none'
+              const target = e.target as HTMLElement;
+              target.style.transform = 'translateY(0)';
+              target.style.boxShadow = 'none';
             }}
           >
             Access Workspace
@@ -353,37 +359,6 @@ export default function HomePage() {
 
         .hero-cta {
           margin-top: 2rem;
-        }
-
-        .hero-btn {
-          background: linear-gradient(135deg, #495057, #6c757d);
-          color: white;
-          border: none;
-          padding: 1rem 2rem;
-          border-radius: 16px;
-          font-size: 1.1rem;
-          font-weight: 700;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          margin: 0 0.5rem;
-          text-decoration: none;
-          display: inline-block;
-        }
-
-        .hero-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 40px rgba(73, 80, 87, 0.3);
-        }
-
-        .hero-btn.secondary {
-          background: transparent;
-          color: #495057;
-          border: 2px solid #495057;
-        }
-
-        .hero-btn.secondary:hover {
-          background: #495057;
-          color: white;
         }
 
         /* SOLUTIONS SECTION */
@@ -612,7 +587,6 @@ export default function HomePage() {
           .hero-title { font-size: 2rem; line-height: 1.2; margin-bottom: 1rem; }
           .hero-subtitle { font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5; }
           .hero-cta { margin-top: 1rem; }
-          .hero-btn { display: block; margin: 0.8rem auto; padding: 1rem 2rem; font-size: 1rem; width: 100%; max-width: 280px; }
           .solutions-section { padding: 2.5rem 1.5rem; }
           .stats-section { padding: 1.5rem 1.5rem; }
           .cta-section { padding: 1.5rem 1.5rem; }
