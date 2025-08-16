@@ -1,7 +1,79 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+// Componente para botón Access Workspace
+function AccessWorkspaceButton({ size = 'normal', className = '' }) {
+  const [isHovered, setIsHovered] = useState(false)
+  
+  const baseStyle = {
+    background: isHovered ? '#3a3f44' : '#495057',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'inline-block',
+    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+    boxShadow: isHovered ? '0 4px 12px rgba(73, 80, 87, 0.3)' : 'none'
+  }
+
+  const sizeStyles = {
+    small: { padding: '0.75rem 1.5rem', fontSize: '0.9rem' },
+    normal: { padding: '1rem 2rem', fontSize: '1rem' }
+  }
+
+  const finalStyle = { 
+    ...baseStyle, 
+    ...sizeStyles[size === 'small' ? 'small' : 'normal'] 
+  }
+
+  return (
+    <Link 
+      href="/login" 
+      style={finalStyle}
+      className={className}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      Access Workspace
+    </Link>
+  )
+}
+
+// Componente para botón Explore Solutions
+function ExploreSolutionsButton() {
+  const [isHovered, setIsHovered] = useState(false)
+  
+  const style = {
+    background: isHovered ? '#495057' : 'transparent',
+    color: isHovered ? 'white' : '#495057',
+    textDecoration: 'none',
+    padding: '1rem 2rem',
+    border: '2px solid #495057',
+    borderRadius: '8px',
+    fontWeight: '600',
+    fontSize: '1rem',
+    transition: 'all 0.3s ease',
+    display: 'inline-block',
+    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+    boxShadow: isHovered ? '0 4px 12px rgba(73, 80, 87, 0.3)' : 'none'
+  }
+
+  return (
+    <Link 
+      href="/solutions" 
+      style={style}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      Explore Solutions
+    </Link>
+  )
+}
 
 export default function HomePage() {
   useEffect(() => {
@@ -60,34 +132,7 @@ export default function HomePage() {
             </div>
 
             {/* CTA Button */}
-            <Link 
-              href="/login" 
-              style={{
-                background: '#495057',
-                color: 'white',
-                textDecoration: 'none',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '8px',
-                fontWeight: '600',
-                fontSize: '0.9rem',
-                transition: 'all 0.3s ease',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'inline-block'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = '#3a3f44'
-                e.target.style.transform = 'translateY(-2px)'
-                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = '#495057'
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
-              }}
-            >
-              Access Workspace
-            </Link>
+            <AccessWorkspaceButton size="small" />
 
             {/* Mobile Menu Button */}
             <button className="mobile-menu-button">
@@ -107,63 +152,8 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            <Link 
-              href="/login" 
-              style={{
-                background: '#495057',
-                color: 'white',
-                textDecoration: 'none',
-                padding: '1rem 2rem',
-                borderRadius: '8px',
-                fontWeight: '600',
-                fontSize: '1rem',
-                transition: 'all 0.3s ease',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'inline-block'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = '#3a3f44'
-                e.target.style.transform = 'translateY(-2px)'
-                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = '#495057'
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
-              }}
-            >
-              Access Workspace
-            </Link>
-            <Link 
-              href="/solutions" 
-              style={{
-                background: 'transparent',
-                color: '#495057',
-                textDecoration: 'none',
-                padding: '1rem 2rem',
-                border: '2px solid #495057',
-                borderRadius: '8px',
-                fontWeight: '600',
-                fontSize: '1rem',
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = '#495057'
-                e.target.style.color = 'white'
-                e.target.style.transform = 'translateY(-2px)'
-                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'transparent'
-                e.target.style.color = '#495057'
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
-              }}
-            >
-              Explore Solutions
-            </Link>
+            <AccessWorkspaceButton size="normal" />
+            <ExploreSolutionsButton />
           </div>
         </div>
       </section>
@@ -277,34 +267,7 @@ export default function HomePage() {
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          <Link 
-            href="/login" 
-            style={{
-              background: '#495057',
-              color: 'white',
-              textDecoration: 'none',
-              padding: '1rem 2rem',
-              borderRadius: '8px',
-              fontWeight: '600',
-              fontSize: '1rem',
-              transition: 'all 0.3s ease',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'inline-block'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = '#3a3f44'
-              e.target.style.transform = 'translateY(-2px)'
-              e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = '#495057'
-              e.target.style.transform = 'translateY(0)'
-              e.target.style.boxShadow = 'none'
-            }}
-          >
-            Access Workspace
-          </Link>
+          <AccessWorkspaceButton size="normal" />
         </div>
       </section>
 
@@ -365,7 +328,7 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* STYLES - CSS CORREGIDO PARA CENTRADO PERFECTO */}
+      {/* STYLES - CSS LIMPIO SIN BOTONES PROBLEMÁTICOS */}
       <style jsx>{`
         * {
           margin: 0;
@@ -551,41 +514,6 @@ export default function HomePage() {
           font-weight: 600;
         }
 
-        /* BOTÓN ACCESS WORKSPACE - MISMO EN TODOS LADOS */
-        .access-workspace-btn {
-          background: #495057 !important;
-          color: white !important;
-          text-decoration: none !important;
-          padding: 0.75rem 1.5rem !important;
-          border-radius: 8px !important;
-          font-weight: 600 !important;
-          font-size: 0.9rem !important;
-          transition: all 0.3s ease !important;
-          border: none !important;
-          cursor: pointer !important;
-          display: inline-block !important;
-        }
-
-        .access-workspace-btn:hover {
-          background: #3a3f44 !important;
-          color: white !important;
-          transform: translateY(-2px) !important;
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3) !important;
-          text-decoration: none !important;
-        }
-
-        /* VARIANTE PARA HERO SECTION - MÁS GRANDE */
-        .hero-buttons .access-workspace-btn {
-          padding: 1rem 2rem !important;
-          font-size: 1rem !important;
-        }
-
-        /* VARIANTE PARA CTA SECTION - MÁS GRANDE */
-        .cta-container .access-workspace-btn {
-          padding: 1rem 2rem !important;
-          font-size: 1rem !important;
-        }
-
         .mobile-menu-button {
           display: none;
           background: none;
@@ -657,47 +585,6 @@ export default function HomePage() {
           gap: 1rem;
           justify-content: center;
           align-items: center;
-        }
-
-        .hero-cta-primary {
-          background: #495057;
-          color: white;
-          text-decoration: none;
-          padding: 1rem 2rem;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
-          display: inline-block;
-        }
-
-        .hero-cta-primary:hover {
-          background: #3a3f44;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
-        }
-
-        .hero-cta-secondary {
-          background: transparent !important;
-          color: #495057 !important;
-          text-decoration: none !important;
-          padding: 1rem 2rem !important;
-          border: 2px solid #495057 !important;
-          border-radius: 8px !important;
-          font-weight: 600 !important;
-          font-size: 1rem !important;
-          transition: all 0.3s ease !important;
-          display: inline-block !important;
-        }
-
-        .hero-cta-secondary:hover {
-          background: #495057 !important;
-          color: white !important;
-          transform: translateY(-2px) !important;
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3) !important;
-          text-decoration: none !important;
         }
 
         /* SOLUTIONS SECTION */
@@ -876,26 +763,6 @@ export default function HomePage() {
           font-size: 1.2rem;
           color: #6c757d;
           margin-bottom: 2.5rem;
-        }
-
-        .cta-button {
-          background: #495057;
-          color: white;
-          text-decoration: none;
-          padding: 1rem 2rem;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-          display: inline-block;
-          border: none;
-          cursor: pointer;
-        }
-
-        .cta-button:hover {
-          background: #3a3f44;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         /* FOOTER - CENTRADO PERFECTO */
@@ -1097,7 +964,3 @@ export default function HomePage() {
         .w-full {
           width: 100%;
         }
-      `}</style>
-    </div>
-  )
-}
