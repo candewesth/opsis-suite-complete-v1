@@ -256,7 +256,9 @@ export default function HomePage() {
           font-size: 1.5rem;
           color: #495057;
           cursor: pointer;
-        }, 3000);
+        }
+
+        /* HERO SECTION */, 3000);
       }
     }
 
@@ -934,6 +936,8 @@ export default function HomePage() {
           background: linear-gradient(135deg, #0dcaf0, #0ea5e9);
           box-shadow: 0 4px 20px rgba(13, 202, 240, 0.3);
         }
+
+        /* FADE IN ANIMATIONS */
 
         /* FADE IN ANIMATIONS */
         .fade-in {
