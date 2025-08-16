@@ -297,6 +297,7 @@ export default function HomePage() {
           top: 0;
           z-index: 1000;
           width: 100%;
+          padding: 8px 0;
         }
 
         .nav-container {
@@ -310,7 +311,7 @@ export default function HomePage() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          height: 64px;
+          height: 56px;
           width: 100%;
           position: relative;
           z-index: 20;
@@ -333,9 +334,9 @@ export default function HomePage() {
         /* LOGO ANIMADO - EXACTO COMO ESTABLECIDO */
         .nav-logo-container {
           position: relative;
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
           padding: 2px;
           background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd, #00d2d3, #ff9f43, #10ac84, #ee5a6f, #ff6b6b);
           background-size: 400% 400%;
@@ -344,17 +345,17 @@ export default function HomePage() {
         }
 
         .nav-logo {
-          width: 44px;
-          height: 44px;
+          width: 36px;
+          height: 36px;
           background: linear-gradient(135deg, #495057, #6c757d);
-          border-radius: 10px;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          font-size: 16px;
           color: white;
           font-weight: 300;
-          box-shadow: 0 2px 10px rgba(73, 80, 87, 0.2);
+          box-shadow: 0 2px 8px rgba(73, 80, 87, 0.2);
           position: relative;
           z-index: 6;
           overflow: hidden;
@@ -366,7 +367,7 @@ export default function HomePage() {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-size: 20px;
+          font-size: 16px;
           color: white;
           animation: winkEye 4s ease-in-out infinite;
           z-index: 7;
@@ -408,7 +409,7 @@ export default function HomePage() {
         }
 
         .nav-brand {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           font-weight: 700;
           background: linear-gradient(135deg, #495057, #6c757d);
           -webkit-background-clip: text;
