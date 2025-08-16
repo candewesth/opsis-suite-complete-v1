@@ -439,37 +439,40 @@ export default function HomePage() {
           font-weight: 600;
         }
 
-        /* BOTONES ACCESS WORKSPACE - SIMPLES Y FUNCIONALES */
+        /* BOTONES ACCESS WORKSPACE - EXACTOS COMO IMAGEN */
         .btn-access-workspace {
-          background: #495057;
+          background: #5a6268;
           color: white;
           text-decoration: none;
           padding: 0.75rem 1.5rem;
-          border-radius: 8px;
+          border-radius: 25px;
           font-weight: 600;
           font-size: 0.9rem;
           transition: all 0.3s ease;
           display: inline-block;
+          border: none;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-access-workspace:hover {
-          background: #3a3f44;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
+          background: #495057;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .btn-access-workspace.btn-large {
           padding: 1rem 2rem;
           font-size: 1rem;
+          border-radius: 30px;
         }
 
         .btn-explore-solutions {
           background: transparent;
-          color: #495057;
+          color: #5a6268;
           text-decoration: none;
           padding: 1rem 2rem;
-          border: 2px solid #495057;
-          border-radius: 8px;
+          border: 2px solid #5a6268;
+          border-radius: 30px;
           font-weight: 600;
           font-size: 1rem;
           transition: all 0.3s ease;
@@ -477,10 +480,10 @@ export default function HomePage() {
         }
 
         .btn-explore-solutions:hover {
-          background: #495057;
+          background: #5a6268;
           color: white;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .mobile-menu-button {
