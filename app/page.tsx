@@ -1,79 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-
-// Componente para botón Access Workspace
-function AccessWorkspaceButton({ size = 'normal', className = '' }) {
-  const [isHovered, setIsHovered] = useState(false)
-  
-  const baseStyle = {
-    background: isHovered ? '#3a3f44' : '#495057',
-    color: 'white',
-    textDecoration: 'none',
-    borderRadius: '8px',
-    fontWeight: '600',
-    transition: 'all 0.3s ease',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'inline-block',
-    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
-    boxShadow: isHovered ? '0 4px 12px rgba(73, 80, 87, 0.3)' : 'none'
-  }
-
-  const sizeStyles = {
-    small: { padding: '0.75rem 1.5rem', fontSize: '0.9rem' },
-    normal: { padding: '1rem 2rem', fontSize: '1rem' }
-  }
-
-  const finalStyle = { 
-    ...baseStyle, 
-    ...sizeStyles[size === 'small' ? 'small' : 'normal'] 
-  }
-
-  return (
-    <Link 
-      href="/login" 
-      style={finalStyle}
-      className={className}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      Access Workspace
-    </Link>
-  )
-}
-
-// Componente para botón Explore Solutions
-function ExploreSolutionsButton() {
-  const [isHovered, setIsHovered] = useState(false)
-  
-  const style = {
-    background: isHovered ? '#495057' : 'transparent',
-    color: isHovered ? 'white' : '#495057',
-    textDecoration: 'none',
-    padding: '1rem 2rem',
-    border: '2px solid #495057',
-    borderRadius: '8px',
-    fontWeight: '600',
-    fontSize: '1rem',
-    transition: 'all 0.3s ease',
-    display: 'inline-block',
-    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
-    boxShadow: isHovered ? '0 4px 12px rgba(73, 80, 87, 0.3)' : 'none'
-  }
-
-  return (
-    <Link 
-      href="/solutions" 
-      style={style}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      Explore Solutions
-    </Link>
-  )
-}
+import { useEffect } from 'react'
 
 export default function HomePage() {
   useEffect(() => {
@@ -100,7 +28,7 @@ export default function HomePage() {
 
   return (
     <div className="page-container">
-      {/* NAVIGATION BAR - CENTRADO */}
+      {/* NAVIGATION BAR */}
       <nav className="navigation-bar">
         <div className="nav-container">
           <div className="nav-content">
@@ -132,7 +60,9 @@ export default function HomePage() {
             </div>
 
             {/* CTA Button */}
-            <AccessWorkspaceButton size="small" />
+            <Link href="/login" className="btn-access-workspace">
+              Access Workspace
+            </Link>
 
             {/* Mobile Menu Button */}
             <button className="mobile-menu-button">
@@ -152,8 +82,12 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            <AccessWorkspaceButton size="normal" />
-            <ExploreSolutionsButton />
+            <Link href="/login" className="btn-access-workspace btn-large">
+              Access Workspace
+            </Link>
+            <Link href="/solutions" className="btn-explore-solutions">
+              Explore Solutions
+            </Link>
           </div>
         </div>
       </section>
@@ -267,11 +201,13 @@ export default function HomePage() {
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          <AccessWorkspaceButton size="normal" />
+          <Link href="/login" className="btn-access-workspace btn-large">
+            Access Workspace
+          </Link>
         </div>
       </section>
 
-      {/* FOOTER - CENTRADO */}
+      {/* FOOTER */}
       <footer className="footer">
         <div className="footer-container">
           <div className="footer-grid">
@@ -328,7 +264,6 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* STYLES - CSS LIMPIO SIN BOTONES PROBLEMÁTICOS */}
       <style jsx>{`
         * {
           margin: 0;
@@ -352,7 +287,7 @@ export default function HomePage() {
           width: 100%;
         }
 
-        /* NAVIGATION BAR - CENTRADO PERFECTO */
+        /* NAVIGATION BAR */
         .navigation-bar {
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(10px);
@@ -377,8 +312,6 @@ export default function HomePage() {
           justify-content: space-between;
           height: 56px;
           width: 100%;
-          position: relative;
-          z-index: 20;
         }
 
         .logo-section {
@@ -387,15 +320,13 @@ export default function HomePage() {
           gap: 12px;
           text-decoration: none;
           transition: transform 0.2s ease;
-          position: relative;
-          z-index: 10;
         }
 
         .logo-section:hover {
           transform: scale(1.02);
         }
 
-        /* LOGO ANIMADO - EXACTO COMO ESTABLECIDO */
+        /* LOGO ANIMADO */
         .nav-logo-container {
           position: relative;
           width: 40px;
@@ -405,7 +336,6 @@ export default function HomePage() {
           background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd, #00d2d3, #ff9f43, #10ac84, #ee5a6f, #ff6b6b);
           background-size: 400% 400%;
           animation: gradientShift 4s ease-in-out infinite;
-          z-index: 5;
         }
 
         .nav-logo {
@@ -421,7 +351,6 @@ export default function HomePage() {
           font-weight: 300;
           box-shadow: 0 2px 8px rgba(73, 80, 87, 0.2);
           position: relative;
-          z-index: 6;
           overflow: hidden;
         }
 
@@ -434,7 +363,6 @@ export default function HomePage() {
           font-size: 16px;
           color: white;
           animation: winkEye 4s ease-in-out infinite;
-          z-index: 7;
         }
 
         @keyframes winkEye {
@@ -480,11 +408,9 @@ export default function HomePage() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           user-select: none;
-          position: relative;
-          z-index: 10;
         }
 
-        /* NAVIGATION LINKS - CENTRADOS */
+        /* NAVIGATION LINKS */
         .nav-links-desktop {
           display: flex;
           align-items: center;
@@ -501,7 +427,6 @@ export default function HomePage() {
           padding: 0.5rem 1rem;
           border-radius: 8px;
           transition: all 0.3s ease;
-          position: relative;
         }
 
         .nav-link:hover {
@@ -512,6 +437,50 @@ export default function HomePage() {
         .nav-link.active {
           color: #20c997;
           font-weight: 600;
+        }
+
+        /* BOTONES ACCESS WORKSPACE - SIMPLES Y FUNCIONALES */
+        .btn-access-workspace {
+          background: #495057;
+          color: white;
+          text-decoration: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          display: inline-block;
+        }
+
+        .btn-access-workspace:hover {
+          background: #3a3f44;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
+        }
+
+        .btn-access-workspace.btn-large {
+          padding: 1rem 2rem;
+          font-size: 1rem;
+        }
+
+        .btn-explore-solutions {
+          background: transparent;
+          color: #495057;
+          text-decoration: none;
+          padding: 1rem 2rem;
+          border: 2px solid #495057;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          display: inline-block;
+        }
+
+        .btn-explore-solutions:hover {
+          background: #495057;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
         }
 
         .mobile-menu-button {
@@ -765,7 +734,7 @@ export default function HomePage() {
           margin-bottom: 2.5rem;
         }
 
-        /* FOOTER - CENTRADO PERFECTO */
+        /* FOOTER */
         .footer {
           background: #1d1d1f;
           color: white;
@@ -946,21 +915,7 @@ export default function HomePage() {
             grid-template-columns: repeat(4, 1fr);
           }
         }
-
-        /* UTILITY CLASSES */
-        .text-center {
-          text-align: center;
-        }
-        
-        .text-left {
-          text-align: left;
-        }
-        
-        .mx-auto {
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        .w-full {
-          width: 100%;
-        }
+      `}</style>
+    </div>
+  )
+}
