@@ -60,7 +60,32 @@ export default function HomePage() {
             </div>
 
             {/* CTA Button */}
-            <Link href="/login" className="access-workspace-btn">
+            <Link 
+              href="/login" 
+              style={{
+                background: '#495057',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: '600',
+                fontSize: '0.9rem',
+                transition: 'all 0.3s ease',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'inline-block'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = '#3a3f44'
+                e.target.style.transform = 'translateY(-2px)'
+                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = '#495057'
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = 'none'
+              }}
+            >
               Access Workspace
             </Link>
 
@@ -82,10 +107,61 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            <Link href="/login" className="access-workspace-btn">
+            <Link 
+              href="/login" 
+              style={{
+                background: '#495057',
+                color: 'white',
+                textDecoration: 'none',
+                padding: '1rem 2rem',
+                borderRadius: '8px',
+                fontWeight: '600',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'inline-block'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = '#3a3f44'
+                e.target.style.transform = 'translateY(-2px)'
+                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = '#495057'
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = 'none'
+              }}
+            >
               Access Workspace
             </Link>
-            <Link href="/solutions" className="hero-cta-secondary">
+            <Link 
+              href="/solutions" 
+              style={{
+                background: 'transparent',
+                color: '#495057',
+                textDecoration: 'none',
+                padding: '1rem 2rem',
+                border: '2px solid #495057',
+                borderRadius: '8px',
+                fontWeight: '600',
+                fontSize: '1rem',
+                transition: 'all 0.3s ease',
+                display: 'inline-block'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = '#495057'
+                e.target.style.color = 'white'
+                e.target.style.transform = 'translateY(-2px)'
+                e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'transparent'
+                e.target.style.color = '#495057'
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = 'none'
+              }}
+            >
               Explore Solutions
             </Link>
           </div>
@@ -201,7 +277,32 @@ export default function HomePage() {
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          <Link href="/login" className="access-workspace-btn">
+          <Link 
+            href="/login" 
+            style={{
+              background: '#495057',
+              color: 'white',
+              textDecoration: 'none',
+              padding: '1rem 2rem',
+              borderRadius: '8px',
+              fontWeight: '600',
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'inline-block'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.background = '#3a3f44'
+              e.target.style.transform = 'translateY(-2px)'
+              e.target.style.boxShadow = '0 4px 12px rgba(73, 80, 87, 0.3)'
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.background = '#495057'
+              e.target.style.transform = 'translateY(0)'
+              e.target.style.boxShadow = 'none'
+            }}
+          >
             Access Workspace
           </Link>
         </div>
