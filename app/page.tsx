@@ -60,7 +60,7 @@ export default function HomePage() {
             </div>
 
             {/* CTA Button */}
-            <Link href="/login" className="nav-cta-button">
+            <Link href="/login" className="access-workspace-btn">
               Access Workspace
             </Link>
 
@@ -82,7 +82,7 @@ export default function HomePage() {
             Streamline operations, optimize workflows, and gain total control over your business with our integrated management platform.
           </p>
           <div className="hero-buttons fade-in">
-            <Link href="/login" className="hero-cta-primary">
+            <Link href="/login" className="access-workspace-btn">
               Access Workspace
             </Link>
             <Link href="/solutions" className="hero-cta-secondary">
@@ -201,7 +201,7 @@ export default function HomePage() {
           <p className="cta-subtitle">
             Join hundreds of companies already using Opsis to streamline their business operations.
           </p>
-          <Link href="/login" className="cta-button">
+          <Link href="/login" className="access-workspace-btn">
             Access Workspace
           </Link>
         </div>
@@ -450,23 +450,39 @@ export default function HomePage() {
           font-weight: 600;
         }
 
-        .nav-cta-button {
-          background: #495057;
-          color: white;
-          text-decoration: none;
-          padding: 0.75rem 1.5rem;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 0.9rem;
-          transition: all 0.3s ease;
-          border: none;
-          cursor: pointer;
+        /* BOTÓN ACCESS WORKSPACE - MISMO EN TODOS LADOS */
+        .access-workspace-btn {
+          background: #495057 !important;
+          color: white !important;
+          text-decoration: none !important;
+          padding: 0.75rem 1.5rem !important;
+          border-radius: 8px !important;
+          font-weight: 600 !important;
+          font-size: 0.9rem !important;
+          transition: all 0.3s ease !important;
+          border: none !important;
+          cursor: pointer !important;
+          display: inline-block !important;
         }
 
-        .nav-cta-button:hover {
-          background: #3a3f44;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
+        .access-workspace-btn:hover {
+          background: #3a3f44 !important;
+          color: white !important;
+          transform: translateY(-2px) !important;
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3) !important;
+          text-decoration: none !important;
+        }
+
+        /* VARIANTE PARA HERO SECTION - MÁS GRANDE */
+        .hero-buttons .access-workspace-btn {
+          padding: 1rem 2rem !important;
+          font-size: 1rem !important;
+        }
+
+        /* VARIANTE PARA CTA SECTION - MÁS GRANDE */
+        .cta-container .access-workspace-btn {
+          padding: 1rem 2rem !important;
+          font-size: 1rem !important;
         }
 
         .mobile-menu-button {
@@ -563,23 +579,24 @@ export default function HomePage() {
         }
 
         .hero-cta-secondary {
-          background: transparent;
-          color: #495057;
-          text-decoration: none;
-          padding: 1rem 2rem;
-          border: 2px solid #495057;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 1rem;
-          transition: all 0.3s ease;
-          display: inline-block;
+          background: transparent !important;
+          color: #495057 !important;
+          text-decoration: none !important;
+          padding: 1rem 2rem !important;
+          border: 2px solid #495057 !important;
+          border-radius: 8px !important;
+          font-weight: 600 !important;
+          font-size: 1rem !important;
+          transition: all 0.3s ease !important;
+          display: inline-block !important;
         }
 
         .hero-cta-secondary:hover {
-          background: #495057;
-          color: white;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3);
+          background: #495057 !important;
+          color: white !important;
+          transform: translateY(-2px) !important;
+          box-shadow: 0 4px 12px rgba(73, 80, 87, 0.3) !important;
+          text-decoration: none !important;
         }
 
         /* SOLUTIONS SECTION */
